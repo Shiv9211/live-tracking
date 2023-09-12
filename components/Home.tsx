@@ -4,7 +4,7 @@ import { ScrollView, SafeAreaView } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Location from 'expo-location';
-import MapViewDirections from 'react-native-maps-directions';
+// import MapViewDirections from 'react-native-maps-directions';
 
 import SearchBar from './SearchBar';
 
