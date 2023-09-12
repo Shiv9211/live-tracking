@@ -28,6 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>com.gluestack.liveTracking</string>
+          <string>com.gluestack.liveTracking</string>
         </array>
       </dict>
     </array>
@@ -48,6 +49,19 @@
         </dict>
       </dict>
     </dict>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>The app needs permission to access your location, if you want to be located on the map</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>The app needs permission to access your location, if you want to be located on the map</string>
+    <key>NSLocationUsageDescription</key>
+    <string>The app needs permission to access your location, if you want to be located on the map.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>The app needs permission to access your location, if you want to be located on the map</string>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>location</string>
+      <string>fetch</string>
+    </array>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

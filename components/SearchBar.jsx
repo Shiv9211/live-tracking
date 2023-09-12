@@ -1,19 +1,22 @@
 import { 
     Box, 
     Input,
-    InputField
+    InputField,
+    Text
 } from '@gluestack-ui/themed';
 
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native';
 
-import Hamburgur from '../assets/Icons/Hamburgur.tsx'
+import Hamburgur from '../assets/assets/Icons/Hamburgur.tsx'
 
 
 export default function SearchBar() {
     return (
       <Box  w="$full" p="$4" style={searchBarStyles.searchBar}> 
-       <Hamburgur />
+       {/* <Hamburgur />
+        */}
+        <Text>Icon</Text>
       </Box>
     );
   }

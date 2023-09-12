@@ -81,7 +81,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.livetracking"
+    namespace 'com.gluestack.liveTracking'
     defaultConfig {
         applicationId 'com.gluestack.liveTracking'
         minSdkVersion rootProject.ext.minSdkVersion

@@ -123,15 +123,6 @@ export default function Home()  {
             {isUserReached ? <Text size="2xl" bold={true} color="$green">Destination Reached 	✅</Text> : <Text size="2xl" bold={true} color="$red">Moving towards destination. →</Text>}
           </Center> */}
           <Box p="$5" style={styles.buttonsContainer}>
-          {/* <Button
-            size="md"
-            variant="solid"
-            action="primary"
-            isDisabled={false}
-            isFocusVisible={false}
-          >
-            <ButtonText>View shared</ButtonText>
-          </Button> */}
           <Button
             w="$full"
             variant="solid"

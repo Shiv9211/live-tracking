@@ -1,33 +1,46 @@
 {
-  "expo": {
-    "name": "liveTracking",
-    "slug": "expo-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier" : "com.gluestack.liveTracking"
-    },
-    "android": {
-      "package" : "com.gluestack.liveTracking",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "scheme":"com.gluestack.liveTracking"
-  }
+    "expo": {
+        "name": "liveTracking",
+        "slug": "expo-app",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.gluestack.liveTracking",
+            "infoPlist": {
+                "NSLocationUsageDescription": "The app needs permission to access your location, if you want to be located on the map.",
+                "NSLocationWhenInUseUsageDescription": "The app needs permission to access your location, if you want to be located on the map",
+                "NSLocationAlwaysUsageDescription": "The app needs permission to access your location, if you want to be located on the map",
+                "NSLocationAlwaysAndWhenInUseUsageDescription": "The app needs permission to access your location, if you want to be located on the map",
+                "UIBackgroundModes": [
+                    "location",
+                    "fetch"
+                ]
+            }
+        },
+        "android": {
+            "package": "com.gluestack.liveTracking",
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "permissions": [
+                "LOCATION"
+            ]
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "scheme": "com.gluestack.liveTracking"
+    }
 }
