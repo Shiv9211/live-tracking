@@ -15,6 +15,8 @@ PODS:
     - ExpoModulesCore
   - EXFont (11.4.0):
     - ExpoModulesCore
+  - EXLocation (16.1.0):
+    - ExpoModulesCore
   - Expo (49.0.10):
     - ExpoModulesCore
   - ExpoAdapterGoogleSignIn (10.0.1):
@@ -326,6 +328,10 @@ PODS:
   - React-jsinspector (0.72.4)
   - React-logger (0.72.4):
     - glog
+  - react-native-maps (1.7.1):
+    - React-Core
+  - react-native-viewpager (5.0.11):
+    - React-Core
   - React-NativeModulesApple (0.72.4):
     - React-callinvoker
     - React-Core
@@ -446,6 +452,7 @@ DEPENDENCIES:
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
+  - EXLocation (from `../node_modules/expo-location/ios`)
   - Expo (from `../node_modules/expo`)
   - "ExpoAdapterGoogleSignIn (from `../node_modules/@react-native-google-signin/google-signin/expo/ios`)"
   - ExpoCrypto (from `../node_modules/expo-crypto/ios`)
@@ -472,6 +479,8 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-maps (from `../node_modules/react-native-maps`)
+  - "react-native-viewpager (from `../node_modules/@react-native-community/viewpager`)"
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -515,6 +524,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-file-system/ios"
   EXFont:
     :path: "../node_modules/expo-font/ios"
+  EXLocation:
+    :path: "../node_modules/expo-location/ios"
   Expo:
     :path: "../node_modules/expo"
   ExpoAdapterGoogleSignIn:
@@ -565,6 +576,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-maps:
+    :path: "../node_modules/react-native-maps"
+  react-native-viewpager:
+    :path: "../node_modules/@react-native-community/viewpager"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -614,6 +629,7 @@ SPEC CHECKSUMS:
   EXConstants: ce5bbea779da8031ac818c36bea41b10e14d04e1
   EXFileSystem: 2b826a3bf1071a4b80a8457e97124783d1ac860e
   EXFont: 738c44c390953ebcbab075a4848bfbef025fd9ee
+  EXLocation: a425ace19c0445e7ea9702982fc6b9a402791510
   Expo: 0ff83f0415a0e7a9368ce38bf25cad539b18a08c
   ExpoAdapterGoogleSignIn: b6e7ca3d25261737d31c274460b503ff1b6cb303
   ExpoCrypto: a382ab9a2fa91f0b511ce1fe4d6baecee40a1615
@@ -643,6 +659,8 @@ SPEC CHECKSUMS:
   React-jsiexecutor: bc8a9ad812a2c88b3a41c08b5f4b3ed32d6d4766
   React-jsinspector: aaed4cf551c4a1c98092436518c2d267b13a673f
   React-logger: da1ebe05ae06eb6db4b162202faeafac4b435e77
+  react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
+  react-native-viewpager: b99b53127d830885917ef84809c5065edd614a78
   React-NativeModulesApple: 759309419da76ef4c9f331968b840022ee2aa5b1
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
