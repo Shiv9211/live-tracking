@@ -16,18 +16,28 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier" : "com.gluestack.liveTracking"
+      "bundleIdentifier" : "com.gluestack.liveTracking",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDGdkB5B0FQVd35bxL49zQWknXNqlxS0Dw"
+      }
     },
     "android": {
       "package" : "com.gluestack.liveTracking",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      } 
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "scheme":"com.gluestack.liveTracking"
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Live Tracking to use your location."
+        }
+      ]
+    ]
   }
 }

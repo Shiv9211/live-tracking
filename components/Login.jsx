@@ -2,74 +2,57 @@ import {
     Box,
     Text, 
     Button,
-    Icon, 
     ButtonText,
 } from '@gluestack-ui/themed';
-// import Home from './Home'
+import Home from './Home'
 
 import { ScrollView, SafeAreaView, StyleSheet, Image } from 'react-native';
-// import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import * as Google from 'expo-auth-session/providers/google'
-import { useEffect, useState } from 'react';
-
-// Initialize Google Sign-In
-// GoogleSignin.configure({
-//   scopes: ['email', 'profile', 'openid'],
-//   webClientId: '165612333768-27g9eem8qtbs7bguppidd48o7fjc1hbv.apps.googleusercontent.com', // Your OAuth client ID
-// });
+import * as WebBrowser from 'expo-web-browser'
+import { useEffect, useState, useContext } from 'react';
+import { addUser } from '../services/addNewUser'
+import UserContext from '../utils/UserContext';
 
 export default function Login() {
   const [accessToken, setAccessToken] = useState(null)
-  const [userInfo, setUserInfo] = useState(null)
-  const [request, response, promtAsync] = Google.useIdTokenAuthRequest({
-    clientId: '384537390241-fu4vt9bptbc0e2nmf2o79p4f2au4u0l4.apps.googleusercontent.com',
-  },{
-    native: "com.gluestack.liveTracking://"
-  })
+  const [idToken, setIdToken] = useState(null)
 
+  const {user, setUser} = useContext(UserContext)
+
+  WebBrowser.maybeCompleteAuthSession();
+  const [request, response, googleAuthAsync] = Google.useAuthRequest({
+    expoClientId:
+      "165612333768-27g9eem8qtbs7bguppidd48o7fjc1hbv.apps.googleusercontent.com",
+      iosClientId: '384537390241-hp5bvv1qr0vbq4q3c1981l3ccno03hvt.apps.googleusercontent.com',
+      androidClientId: '384537390241-fu4vt9bptbc0e2nmf2o79p4f2au4u0l4.apps.googleusercontent.com',
+      scopes: ['email', 'profile']
+  });
   useEffect(() => {
     if(response?.type === 'success') {
+      setUser({ ...user,
+        idToken: response.params.id_token,
+        accessToken: response.authentication.accessToken
+      })
+      setIdToken(response.params.id_token)
       setAccessToken(response.authentication.accessToken)
       accessToken && fetchUserInfo();
+      idToken && addUser(idToken)
     }
   }, [response, accessToken])
 
   async function fetchUserInfo() {
+    console.log(idToken)
     let response = await fetch('https://www.googleapis.com/userinfo/v2/me', {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
     })
-    const user = await response.json();
-    console.log(user)
-    setUserInfo(user)
-  }
-    // const signInWithGoogle = async () => {
-    //     try {
-    //         await GoogleSignin.hasPlayServices();
-    //         const userInfo = await GoogleSignin.signIn();
-    //         // setState({ userInfo });
-    //         console.log(userInfo)
-    //       } catch (error) {
-    //         if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-    //           // user cancelled the login flow
-    //           console.log("User cancelled the login flow")
-    //         } 
-    //         if (error.code === statusCodes.IN_PROGRESS) {
-    //           // operation (e.g. sign in) is in progress already
-    //         } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-    //           // play services not available or outdated
-    //           console.log("Play service is not available")
-    //         } else {
-    //           // some other error happened
-    //           console.log("Some Other Error")
-    //         }
-    //       }
-    // }
-
+    const data = await response.json();
+    data && setUser(user => ({ ...user, userData: data }))
+  } 
 
     return (
-       userInfo ? <Text>Home</Text> : <SafeAreaView>
+       user.idToken !== "" ? <Home /> : <SafeAreaView>
       <Box bg="$white" style={styles.mainContainer}>
           <Box bg="white" h="$4/5" w="$full" style={styles.loginContainer}>
            <Image source={require('../assets/login-logo.png')} style={{
@@ -95,7 +78,7 @@ export default function Login() {
               isDisabled={!request}
               isFocusVisible={false}
               onPress={() => {
-                promtAsync();
+                googleAuthAsync();
               }}
               >
               <Image source={require('../assets/googleIcon.png')} style={{
