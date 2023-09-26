@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://13.232.18.102:8080'
+const baseUrl = 'http://103.252.242.68:3535'
 
 const addUser = (token) => {
     axios({

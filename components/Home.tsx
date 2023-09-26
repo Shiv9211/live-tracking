@@ -23,6 +23,7 @@ export default function Home()  {
     const [userAddress, setUserAddress] = useState<any>()
     const [locationErrorMsg, setLocationErrorMsg] = useState('')
     const [isReadyToShare, setIsReadyToShare] = useState<boolean>(false)
+    const [isShared, setIsShared] = useState<boolean>(false)
     const [targetedEmail, setTargetedEmail] = useState<string>("")
     let timer = null
     const { user, setUser, setAllRecievedLocations, allRecievedLocations, setAllSharedLocations } = useContext(UserContext)
@@ -67,6 +68,7 @@ export default function Home()  {
         setAllSharedLocations(sharedList)
       alert(`Your live location is shared with ${targetedEmail}.`)
       setTargetedEmail('')
+      setIsShared(true)
       setIsReadyToShare(false)
       }
       
@@ -159,7 +161,17 @@ export default function Home()  {
                 setTargetedEmail('')
               }}>
                 x</Text></Box>
-              : <Button
+              : !isShared ? <Button
+              mt="$2"
+              w="$full"
+              variant="solid"
+              action="primary"
+              isDisabled={false}
+              isFocusVisible={false}
+              // onPress={() => handleStopSharing(item.destUser)}
+          >
+              <ButtonText>Stop Sharing</ButtonText>
+          </Button> : <Button
                 w="$full"
                 variant="solid"
                 action="primary"

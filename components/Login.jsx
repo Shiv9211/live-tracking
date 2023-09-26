@@ -22,9 +22,9 @@ export default function Login() {
   WebBrowser.maybeCompleteAuthSession();
   const [request, response, googleAuthAsync] = Google.useAuthRequest({
     expoClientId:
-      "165612333768-27g9eem8qtbs7bguppidd48o7fjc1hbv.apps.googleusercontent.com",
-      iosClientId: '384537390241-hp5bvv1qr0vbq4q3c1981l3ccno03hvt.apps.googleusercontent.com',
-      androidClientId: '384537390241-fu4vt9bptbc0e2nmf2o79p4f2au4u0l4.apps.googleusercontent.com',
+      "CLIENT_ID_FOR_WEB",
+      iosClientId: 'CLIENT_ID_FOR_iOS',
+      androidClientId: 'CLIENT_ID_FOR_ANDROID',
       scopes: ['email', 'profile']
   });
   useEffect(() => {
